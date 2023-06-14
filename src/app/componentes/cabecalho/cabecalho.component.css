@@ -1,0 +1,26 @@
+.cabeçalho {
+  width: 100vw;
+  height: 100px;
+  background-color: var(--azul-standard);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container__titulo {
+  font-size: 24px;
+  color: var(--branco);
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .cabeçalho {
+    margin-bottom: 1em;
+  }
+}

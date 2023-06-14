@@ -1,0 +1,24 @@
+.rodape {
+  width: 100vw;
+  height: 50px;
+  background-color: var(--azul-standard);
+  line-height: 50%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .rodape {
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  .quebra-linha {
+    white-space: pre;
+  }
+}

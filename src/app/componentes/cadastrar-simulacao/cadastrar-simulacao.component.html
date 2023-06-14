@@ -1,0 +1,93 @@
+<main class="principal">
+  <form [formGroup]="formulario">
+
+    <p class="titulo__texto">Simule seu crédito. <br>Preencha o valor, prazo e sistema de amortização</p>
+
+    <section class="entrada">
+      <div class="entrada__valor">
+        <label for="valorDesejado" class="campo__rotulo">Valor</label>
+        <input
+          class="campo__texto"
+          type="text"
+          id="valorDesejado"
+          formControlName="valorDesejado"
+          (input)="atualizaValorDesejado()"
+          (focus)="limpaMensagemDeErroDeValidacao()"
+        />
+
+      </div>
+      <div class="entrada__prazo">
+        <label for="prazo" class="campo__rotulo">Prazo</label>
+        <input
+          class="campo__texto"
+          type="number"
+          id="prazo"
+          formControlName="prazo"
+          (focus)="limpaMensagemDeErroDeValidacao()"
+        />
+      </div>
+
+    </section>
+
+    <div class="mensagem-erro" *ngIf="valorPrazoPermitidoError">{{ valorPrazoPermitidoError }}</div>
+
+    <section class="tipo">
+      <div class="tipo__price">
+        <label class="campo__rotulo" for="price">PRICE</label>
+        <input
+          type="radio"
+          id="priceRadio"
+          formControlName="tipo"
+          value="PRICE"
+          (change)="selecionaTipo('PRICE')"
+
+
+        />
+      </div>
+
+      <div class="tipo__sac">
+        <label class="campo__rotulo" for="sacRadio">SAC</label>
+        <input
+          type="radio"
+          id="sacRadio"
+          formControlName="tipo"
+          value="SAC"
+          (change)="selecionaTipo('SAC')"
+
+
+        />
+      </div>
+    </section>
+
+    <div class="botao">
+      <button class="botao__simular" (click)="cadastraSimulacao()">Simular</button>
+    </div>
+
+    <div class="descricao" *ngIf="resultadoSimulacao.length > 0 && mostrarTabela" >
+      <p><span>Valor:</span> {{  formataMoeda(valorDesejado) }}</p>
+      <p><span>Prazo:</span> {{ prazo }}</p>
+      <p><span>Taxa de juros:</span> {{ taxaJuros }} </p>
+      <p><span>Sistema de amortização:</span> {{ tipo }}</p>
+      <p><span>Total a ser pago:</span> {{ formataMoeda(valorTotal) }}</p>
+    </div>
+
+    <table *ngIf="mostrarTabela">
+      <thead *ngIf="resultadoSimulacao.length > 0">
+        <tr>
+          <th>Número</th>
+          <th>Valor Amortização</th>
+          <th>Valor Juros</th>
+          <th>Valor Prestação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let parcela of resultadoSimulacao">
+          <td>{{ parcela.numero }}</td>
+          <td>{{ formataMoeda(parcela.valorAmortizacao)  }}</td>
+          <td>{{ formataMoeda(parcela.valorJuros) }}</td>
+          <td class="valor-prestacao">{{ formataMoeda(parcela.valorPrestacao) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</main>
