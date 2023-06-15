@@ -133,8 +133,6 @@ span {
 
   .entrada {
     gap: 1em;
-    justify-content: center;
-    margin-bottom: 0.5em;
     margin-left: 1em;
   }
 
@@ -143,27 +141,20 @@ span {
   }
 
   .campo__texto {
-    border: 1px solid var(--azul-standard);
-    border-radius: 24px;
     padding: 0.5em;
     width: 75%;
   }
 
   .tipo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2em;
     font-size: 14px;
   }
 
   input[type="text"], input[type="number"] {
-    font-family: var(--fonte-principal);
     font-size: 14px;
   }
 
   .descricao {
     justify-content: center;
-    margin-bottom: 1em;
     font-size: 14px;
     line-height: 1.25;
     margin-left: 1em;
@@ -172,7 +163,6 @@ span {
   table, th, td {
     padding: 0.5em;
     font-size: 14px;
-
   }
 
   .mensagem-erro {
@@ -181,8 +171,6 @@ span {
     margin-left: 2em;
     margin-right: 2em;
   }
-
-
 
 }
 
